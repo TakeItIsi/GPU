@@ -1,7 +1,8 @@
 import pycuda
 import numpy as np
 
-#NuevaMatriz: Crea una matriz con las relaciones binarias
+#NuevaMatriz: Dict*Dict*Dict -> Matriz
+# Crea una matriz con las relaciones binarias
 #entre pais y continente
 def NuevaMatriz(conti, pais, cp):
     mat=np.zeros((len(conti), len(pais)))
@@ -14,10 +15,3 @@ def NuevaMatriz(conti, pais, cp):
             i=i+1
         p=p+1
     return mat
-
-#Test
-
-#ccc = {"0":"a","1":"b","2":"c"}
-#ppp = {"0":"alfa","1":"beta","2":"alfalfa","3":"comino","4":"cuchifli","5":"bumblebee"}
-#cyp =[["alfa","a"],["alfalfa","a"],["beta","b"],["bumblebee","b"],["comino","c"],["cuchifli","c"]]
-#print(NuevaMatriz(ccc,ppp,cyp))

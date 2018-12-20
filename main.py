@@ -1,3 +1,7 @@
+import time
+start = time.time()
+#"the code you want to test stays here"
+
 import pycuda
 from CrearMatriz import NuevaMatriz
 import json
@@ -18,6 +22,7 @@ with open("continents.json") as f:
 
 paiscont = pandas.read_csv("countries-continent.csv", sep=';')
 paiscontdic = dict(zip(paiscont.Country, paiscont.Continent))
+print(paiscontdic)
 
 ciupai = pandas.read_csv("cities-country.csv", sep=";")
 ciupaidic = dict(zip(ciupai.name, ciupai.country))
@@ -28,4 +33,10 @@ ciudadpais = NuevaMatriz(paises, ciudades, ciupaidic)
 np.savetxt('PaisEnContinente.txt', paiscontinente, fmt='%.1i')
 np.savetxt('CiudadEnPais.txt', ciudadpais, fmt='%.1i')
 
+ciudadcontinente=np.zeros((len(continentes), len(ciudades)))
+np.matmul(paiscontinente, ciudadpais, ciudadcontinente)
 
+np.savetxt('CiudadEnContinente.txt', ciudadcontinente, fmt='%.1i')
+
+end = time.time()
+print(end - start)
