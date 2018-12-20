@@ -4,6 +4,8 @@ import numpy as np
 #NuevaMatriz: Dict*Dict*Dict -> Matriz
 # Crea una matriz con las relaciones binarias
 #entre pais y continente
+#Esto es MUY lento para matrices grandes
+#TO DO: Eficiencia, paralelismo?
 def NuevaMatriz(conti, pais, cp):
     mat=np.zeros((len(conti), len(pais)))
     p=0
