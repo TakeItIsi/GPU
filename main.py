@@ -53,9 +53,11 @@ end = time.time()
 print("Tiempo de multiplicación de matrices:", end - start)
 
 a =""
-while a!="exit":
-    a = input("Que ciudad desea buscar?")
+while True:
     b = 0
+    a = input("Que ciudad desea buscar?")
+    if a=="exit":
+        exit()
     start = time.time()
     while (b<len(ciudades)):
         if ciudades[str(b)]==a:
